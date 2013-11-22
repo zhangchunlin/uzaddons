@@ -1,0 +1,228 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2013-11-17 21:14\n"
+"PO-Revision-Date: 2013-11-22 17:24+0800\n"
+"Last-Translator: Chunlin Zhang <zhangchunlin@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Generated-By: pygettext.py 1.6\n"
+
+#: ./rinvitation/forms.py:7
+#: ./rinvitation/templates/register.html:7
+msgid "Register"
+msgstr "注册"
+
+#: ./rinvitation/forms.py:10
+#: ./rinvitation/models.py:11
+msgid "Username"
+msgstr "用户名"
+
+#: ./rinvitation/forms.py:11
+#: ./rinvitation/models.py:14
+msgid "Password"
+msgstr "口令"
+
+#: ./rinvitation/forms.py:12
+msgid "Password again"
+msgstr "再次输入口令："
+
+#: ./rinvitation/forms.py:13
+#: ./rinvitation/models.py:13
+#: ./rinvitation/models.py:85
+#: ./rinvitation/templates/forum_admin_icode.html:12
+#: ./rinvitation/templates/forum_admin_icode.html:24
+msgid "Email"
+msgstr "邮箱"
+
+#: ./rinvitation/forms.py:14
+#: ./rinvitation/forms.py:44
+#: ./rinvitation/models.py:81
+#: ./rinvitation/templates/forum_admin_icode.html:18
+#: ./rinvitation/templates/forum_icode.html:7
+msgid "Invitation code"
+msgstr "邀请码"
+
+#: ./rinvitation/forms.py:34
+msgid "User \"%s\" is already existed!"
+msgstr "用户 \"%s\" 已经存在！"
+
+#: ./rinvitation/forms.py:40
+msgid "Passwords are not match."
+msgstr "密码不匹配"
+
+#: ./rinvitation/views.py:50
+msgid "Register failed!"
+msgstr "注册失败!"
+
+#: ./rinvitation/settings.ini:10
+msgid "Notice: Invitation code needed for register"
+msgstr "注意: 注册需要有邀请码"
+
+#: ./rinvitation/views.py:108
+msgid "You are invited as: "
+msgstr "您被邀请的验证身份为: "
+
+#: ./rinvitation/views.py:118
+msgid "Mail sent fail,you can send it manually to "
+msgstr "邮件发送失败,你可以手动发送邀请码给"
+
+#: ./rinvitation/templates/admin_layout.html:33
+msgid "User Manager"
+msgstr "用户管理"
+
+#: ./rinvitation/views.py:123
+msgid "Error: you have not permission"
+msgstr "错误: 您没有权限"
+
+#: ./rinvitation/templates/forum_admin_icode.html:34
+msgid "Input verification note and email to create"
+msgstr "请输入身份验证信息及邮件地址以创建邀请码"
+
+#: ./rinvitation/templates/admin_layout.html:21
+msgid "Information"
+msgstr "信息"
+
+#: ./rinvitation/forms.py:52
+msgid "Invalid invitation code"
+msgstr "无效的邀请码"
+
+#: ./rinvitation/forms.py:58
+msgid "This code has been used"
+msgstr "此邀请码已经被使用过了"
+
+#: ./rinvitation/models.py:83
+msgid "Invitation code creator"
+msgstr "邀请码生成者"
+
+#: ./rinvitation/forms.py:38
+msgid "Password too short,should >"
+msgstr "密码太短,长度必须 >"
+
+#: ./rinvitation/templates/forum_admin_icode.html:16
+msgid "Index"
+msgstr "索引"
+
+#: ./rinvitation/views.py:114
+msgid "Invitation code has been generated and send to "
+msgstr "邀请码已经生成并发送到 "
+
+#: ./rinvitation/models.py:16
+msgid "Last Login"
+msgstr "上次登入"
+
+#: ./rinvitation/models.py:18
+msgid "Portrait"
+msgstr "头像"
+
+#: ./rinvitation/views.py:117
+msgid "Invitation code has been generated"
+msgstr "邀请码已经生成"
+
+#: ./rinvitation/views.py:95
+msgid "Error: already generate code for this email address!"
+msgstr "错误: 已经为此邮件地址生成过邀请码了"
+
+#: ./rinvitation/forms.py:21
+msgid "User name too short,should >"
+msgstr "用户名太短,长度必须 >"
+
+#: ./rinvitation/templates/admin_layout.html:22
+msgid "Change Password"
+msgstr "修改密码"
+
+#: ./rinvitation/templates/forum_admin_icode.html:32
+msgid "Page number"
+msgstr "请输入要跳转的页码"
+
+#: ./rinvitation/models.py:84
+#: ./rinvitation/templates/forum_admin_icode.html:22
+msgid "Used"
+msgstr "已使用"
+
+#: ./rinvitation/forms.py:43
+msgid "Go to register"
+msgstr "开始注册"
+
+#: ./rinvitation/views.py:107
+msgid "Welcome to "
+msgstr "欢迎来到"
+
+#: ./rinvitation/templates/admin_layout.html:31
+msgid "Admin Settings"
+msgstr "管理设置"
+
+#: ./rinvitation/views.py:109
+msgid "Your invitation code is: "
+msgstr "你的邀请码为: "
+
+#: ./rinvitation/views.py:110
+msgid "Please visit this URL to register: "
+msgstr "请访问此地址完成注册: "
+
+#: ./rinvitation/models.py:17
+msgid "Joined Date"
+msgstr "注册时间"
+
+#: ./rinvitation/models.py:15
+msgid "Is Superuser"
+msgstr "超级用户"
+
+#: ./rinvitation/models.py:19
+msgid "Active Status"
+msgstr "活动状态"
+
+#: ./rinvitation/models.py:20
+msgid "Lock Status"
+msgstr "锁状态"
+
+#: ./rinvitation/templates/forum_admin_icode.html:14
+msgid "Create new invitation code"
+msgstr "创建邀请码"
+
+#: ./rinvitation/models.py:12
+msgid "Nick Name"
+msgstr "昵称"
+
+#: ./rinvitation/models.py:26
+#: ./rinvitation/models.py:82
+#: ./rinvitation/templates/forum_admin_icode.html:10
+#: ./rinvitation/templates/forum_admin_icode.html:20
+msgid "Verification note"
+msgstr "身份验证信息"
+
+#: ./rinvitation/templates/admin_layout.html:19
+msgid "Settings"
+msgstr "配置"
+
+#: ./rinvitation/models.py:86
+msgid "Create Date"
+msgstr "创建日期"
+
+#: ./rinvitation/forms.py:29
+msgid "User name should not contain: "
+msgstr "用户名不能包含: "
+
+#: ./rinvitation/views.py:123
+msgid "Error: you have no permission"
+msgstr "错误: 没有权限"
+
+#: ./rinvitation/templates/forum_admin_icode.html:28
+msgid "Total"
+msgstr "共"
+
+#: ./rinvitation/templates/forum_admin_icode.html:26
+msgid "Page "
+msgstr "第"
+
+#: ./rinvitation/templates/forum_admin_icode.html:30
+msgid "Page"
+msgstr "页"
+

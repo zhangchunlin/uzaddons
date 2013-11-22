@@ -1,0 +1,122 @@
+{{extend "forums_admin_layout.html"}}
+
+{{block sub_menu}}
+{{sub_menu(menu_items, 'forumadmin','icode')}}
+{{end}}
+
+{{block content_main}}
+{{use 'avalon'}}
+
+<div ms-controller="icode">
+<p><input ms-duplex="vnote" class="input-medium" placeholder="{{=_('Verification note')}}"/> <input ms-duplex="email" class="input-medium" placeholder="{{=_('Email')}}"/> <button class="btn btn-primary" type="button" ms-enabled="can_create_icode()" ms-click="add_icode">{{=_('Create new invitation code')}}</button> <br /> <span class="label label-success" ms-visible="gen_msg!=''">{%gen_msg%}</span> <span class="label label-important" ms-visible="gen_errmsg!=''">{%gen_errmsg%}</span></p>
+<table class="table table-hover table-bordered">
+    <thead>
+    <tr>
+        <th>{{=_('Index')}}</th>
+        <th>{{=_('Invitation code')}}</th>
+        <th>{{=_('Verification note')}}</th>
+        <th>{{=_('Used')}}</th>
+        <th>{{=_('Email')}}</th>
+    </tr>
+    </thead>
+    <tbody ms-each-el="icodes">
+    <tr ms-class="success:el.used">
+        <td>{%el.id%}</td>
+        <td>{%el.code%}</td>
+        <td>{%el.vnote%}</td>
+        <td><div ms-if="el.used">√</div><div ms-if="!el.used">×</div></td>
+        <td>{%el.email%}</td>
+    </tr>
+    </tbody>
+</table>
+<button class="btn" type="button" ms-click="prevpage">&laquo;</button>
+{{=_("Page ")}}{%cpage_show%} {{=_("Total")}}{%pnum%}{{_("Page")}}
+<button class="btn" type="button" ms-click="nextpage">&raquo;</button>
+ 跳转到<input ms-duplex="page_jump" class="input-small" placeholder="{{=_('Page number')}}" ms-change="cpage_change"/>页
+</div>
+
+<script>
+function check_mail(email){
+    var filter  = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
+    if (filter.test(email)) {return true}
+    return false
+}
+var model = avalon.define("icode", function(vm){
+    vm.icodes = []
+    vm.pnum = 0
+    vm.cpage_show = 1
+    vm.num1page = 20
+    vm.page_jump = 1
+    
+    vm.vnote = ""
+    vm.email = ""
+    vm.gen_msg = "{{=_('Input verification note and email to create')}}"
+    vm.gen_errmsg = ""
+    
+    vm.can_create_icode = function(){
+        var email_ok = check_mail(vm.email)
+        return (vm.vnote!="") && (vm.email!="") && email_ok
+    }
+    vm.add_icode = function(){
+        $.ajax({
+            type: "POST",
+            url: "/api/add_icode",
+            data: {vnote:vm.vnote,email:vm.email},
+            success: function(data){
+                vm.gen_msg = data.msg
+                vm.gen_errmsg = data.errmsg
+                if (data.retcode==0)
+                {
+                    vm.vnote = ""
+                    vm.email = ""
+                    vm.update_icodes()
+                }
+            }
+        })
+    }
+    vm.update_icodes = function()
+    {
+        $.ajax({
+          type: "GET",
+          url: "/api/icodes",
+        data: {cpage:vm.cpage_show-1,num1page:vm.num1page},
+          success: function(data){
+            var pnum = data.pnum
+            var list = data.list
+            
+            vm.icodes = list
+            vm.pnum = pnum
+          }
+        })
+    }
+    vm.valid_cpage_show = function(){
+        if (vm.cpage_show<1 || vm.cpage_show>vm.pnum) {
+            vm.cpage_show = 1
+        }
+    }
+    vm.prevpage = function(){
+        console.log("2")
+        vm.valid_cpage_show()
+        if (vm.cpage_show>1) {
+            vm.cpage_show -= 1
+            vm.update_icodes()
+        }
+    }
+    vm.nextpage = function(){
+        console.log("3")
+        vm.valid_cpage_show()
+        if (vm.cpage_show<vm.pnum) {
+            vm.cpage_show += 1
+            vm.update_icodes()
+        }
+    }
+    vm.cpage_change = function(){
+        vm.cpage_show = vm.page_jump
+        vm.valid_cpage_show()
+        vm.page_jump = vm.cpage_show
+        vm.update_icodes()
+    }
+})
+model.update_icodes()
+</script>
+{{end}}

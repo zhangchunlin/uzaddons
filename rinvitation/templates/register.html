@@ -1,0 +1,18 @@
+{{extend "layout.html"}}
+
+{{block user_info}}{{end}}
+
+{{block content}}
+{{use "avalon"}}
+<div id="login-container" class="content container">
+    <div class="box span5 box_shadow content-outter">
+        <h2>{{=_('Register')}}</h2>
+        <div class="box-body">
+            {{if msg:}}
+            <p class="error">{{<<msg}}</p>
+            {{pass}}
+            {{<< form}}
+        </div>
+    </div>
+</div>
+{{end}}

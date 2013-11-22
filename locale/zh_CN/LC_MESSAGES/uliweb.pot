@@ -1,0 +1,219 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2013-11-22 17:07\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Generated-By: pygettext.py 1.6\n"
+
+
+#: ./rinvitation/forms.py:7 ./rinvitation/templates/register.html:7
+msgid "Register"
+msgstr ""
+
+#: ./rinvitation/forms.py:10 ./rinvitation/models.py:11
+msgid "Username"
+msgstr ""
+
+#: ./rinvitation/forms.py:11 ./rinvitation/models.py:14
+msgid "Password"
+msgstr ""
+
+#: ./rinvitation/forms.py:12
+msgid "Password again"
+msgstr ""
+
+#: ./rinvitation/forms.py:13 ./rinvitation/models.py:13
+#: ./rinvitation/models.py:85
+#: ./rinvitation/templates/forum_admin_icode.html:12
+#: ./rinvitation/templates/forum_admin_icode.html:24
+msgid "Email"
+msgstr ""
+
+#: ./rinvitation/forms.py:14 ./rinvitation/forms.py:44
+#: ./rinvitation/models.py:81
+#: ./rinvitation/templates/forum_admin_icode.html:18
+#: ./rinvitation/templates/forum_icode.html:7
+msgid "Invitation code"
+msgstr ""
+
+#: ./rinvitation/forms.py:21
+msgid "User name too short,should >"
+msgstr ""
+
+#: ./rinvitation/forms.py:29
+msgid "User name should not contain: "
+msgstr ""
+
+#: ./rinvitation/forms.py:34
+msgid "User \"%s\" is already existed!"
+msgstr ""
+
+#: ./rinvitation/forms.py:38
+msgid "Password too short,should >"
+msgstr ""
+
+#: ./rinvitation/forms.py:40
+msgid "Passwords are not match."
+msgstr ""
+
+#: ./rinvitation/forms.py:43
+msgid "Go to register"
+msgstr ""
+
+#: ./rinvitation/forms.py:52
+msgid "Invalid invitation code"
+msgstr ""
+
+#: ./rinvitation/forms.py:58
+msgid "This code has been used"
+msgstr ""
+
+#: ./rinvitation/models.py:12
+msgid "Nick Name"
+msgstr ""
+
+#: ./rinvitation/models.py:15
+msgid "Is Superuser"
+msgstr ""
+
+#: ./rinvitation/models.py:16
+msgid "Last Login"
+msgstr ""
+
+#: ./rinvitation/models.py:17
+msgid "Joined Date"
+msgstr ""
+
+#: ./rinvitation/models.py:18
+msgid "Portrait"
+msgstr ""
+
+#: ./rinvitation/models.py:19
+msgid "Active Status"
+msgstr ""
+
+#: ./rinvitation/models.py:20
+msgid "Lock Status"
+msgstr ""
+
+#: ./rinvitation/models.py:26 ./rinvitation/models.py:82
+#: ./rinvitation/templates/forum_admin_icode.html:10
+#: ./rinvitation/templates/forum_admin_icode.html:20
+msgid "Verification note"
+msgstr ""
+
+#: ./rinvitation/models.py:83
+msgid "Invitation code creator"
+msgstr ""
+
+#: ./rinvitation/models.py:84
+#: ./rinvitation/templates/forum_admin_icode.html:22
+msgid "Used"
+msgstr ""
+
+#: ./rinvitation/models.py:86
+msgid "Create Date"
+msgstr ""
+
+#: ./rinvitation/settings.ini:10
+msgid "Notice: Invitation code needed for register"
+msgstr ""
+
+#: ./rinvitation/templates/admin_layout.html:19
+msgid "Settings"
+msgstr ""
+
+#: ./rinvitation/templates/admin_layout.html:21
+msgid "Information"
+msgstr ""
+
+#: ./rinvitation/templates/admin_layout.html:22
+msgid "Change Password"
+msgstr ""
+
+#: ./rinvitation/templates/admin_layout.html:31
+msgid "Admin Settings"
+msgstr ""
+
+#: ./rinvitation/templates/admin_layout.html:33
+msgid "User Manager"
+msgstr ""
+
+#: ./rinvitation/templates/forum_admin_icode.html:14
+msgid "Create new invitation code"
+msgstr ""
+
+#: ./rinvitation/templates/forum_admin_icode.html:16
+msgid "Index"
+msgstr ""
+
+#: ./rinvitation/templates/forum_admin_icode.html:26
+msgid "Page "
+msgstr ""
+
+#: ./rinvitation/templates/forum_admin_icode.html:28
+msgid "Total"
+msgstr ""
+
+#: ./rinvitation/templates/forum_admin_icode.html:30
+msgid "Page"
+msgstr ""
+
+#: ./rinvitation/templates/forum_admin_icode.html:32
+msgid "Page number"
+msgstr ""
+
+#: ./rinvitation/templates/forum_admin_icode.html:34
+msgid "Input verification note and email to create"
+msgstr ""
+
+#: ./rinvitation/views.py:50
+msgid "Register failed!"
+msgstr ""
+
+#: ./rinvitation/views.py:95
+msgid "Error: already generate code for this email address!"
+msgstr ""
+
+#: ./rinvitation/views.py:107
+msgid "Welcome to "
+msgstr ""
+
+#: ./rinvitation/views.py:108
+msgid "You are invited as: "
+msgstr ""
+
+#: ./rinvitation/views.py:109
+msgid "Your invitation code is: "
+msgstr ""
+
+#: ./rinvitation/views.py:110
+msgid "Please visit this URL to register: "
+msgstr ""
+
+#: ./rinvitation/views.py:114
+msgid "Invitation code has been generated and send to "
+msgstr ""
+
+#: ./rinvitation/views.py:117
+msgid "Invitation code has been generated"
+msgstr ""
+
+#: ./rinvitation/views.py:118
+msgid "Mail sent fail,you can send it manually to "
+msgstr ""
+
+#: ./rinvitation/views.py:123
+msgid "Error: you have no permission"
+msgstr ""
+
