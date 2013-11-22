@@ -52,7 +52,7 @@ class User(Model):
         display_field = 'username'
         
     class AddForm:
-        fields = ['username', 'nickname', 'email', 'weibo', 'blog', 'qq', 'description', 'is_superuser']
+        fields = ['username', 'email', 'weibo', 'blog', 'qq', 'description', 'is_superuser']
         
     class EditForm:
         fields = ['nickname', 'weibo', 'blog', 'qq', 'description']
@@ -61,12 +61,11 @@ class User(Model):
         fields = ['nickname', 'email', 'weibo', 'blog', 'qq', 'description', 'is_superuser']
     
     class DetailView:
-        fields = ['username', 'nickname','vnote', 'email', 'weibo', 'blog', 'qq', 'description', 'is_superuser', 'date_join', 'last_login']
+        fields = ['username', 'vnote', 'email', 'weibo', 'blog', 'qq', 'description', 'is_superuser', 'date_join', 'last_login']
         
     class Table:
         fields = [
             {'name':'username'},
-            {'name':'nickname'},
             {'name':'vnote'},
             {'name':'email', 'width':150},
             {'name':'weibo'},
