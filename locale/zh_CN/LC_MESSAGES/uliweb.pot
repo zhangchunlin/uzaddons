@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-11-22 17:07\n"
+"POT-Creation-Date: 2013-11-23 14:44\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,14 +33,14 @@ msgid "Password again"
 msgstr ""
 
 #: ./rinvitation/forms.py:13 ./rinvitation/models.py:13
-#: ./rinvitation/models.py:85
+#: ./rinvitation/models.py:84
 #: ./rinvitation/templates/forum_admin_icode.html:12
 #: ./rinvitation/templates/forum_admin_icode.html:24
 msgid "Email"
 msgstr ""
 
 #: ./rinvitation/forms.py:14 ./rinvitation/forms.py:44
-#: ./rinvitation/models.py:81
+#: ./rinvitation/models.py:80
 #: ./rinvitation/templates/forum_admin_icode.html:18
 #: ./rinvitation/templates/forum_icode.html:7
 msgid "Invitation code"
@@ -106,22 +106,22 @@ msgstr ""
 msgid "Lock Status"
 msgstr ""
 
-#: ./rinvitation/models.py:26 ./rinvitation/models.py:82
+#: ./rinvitation/models.py:26 ./rinvitation/models.py:81
 #: ./rinvitation/templates/forum_admin_icode.html:10
 #: ./rinvitation/templates/forum_admin_icode.html:20
 msgid "Verification note"
 msgstr ""
 
-#: ./rinvitation/models.py:83
+#: ./rinvitation/models.py:82
 msgid "Invitation code creator"
 msgstr ""
 
-#: ./rinvitation/models.py:84
+#: ./rinvitation/models.py:83
 #: ./rinvitation/templates/forum_admin_icode.html:22
 msgid "Used"
 msgstr ""
 
-#: ./rinvitation/models.py:86
+#: ./rinvitation/models.py:85
 msgid "Create Date"
 msgstr ""
 
@@ -177,6 +177,10 @@ msgstr ""
 msgid "Input verification note and email to create"
 msgstr ""
 
+#: ./rinvitation/templates/forum_admin_icode.html:36
+msgid "Create and sending invitation code ..."
+msgstr ""
+
 #: ./rinvitation/views.py:50
 msgid "Register failed!"
 msgstr ""
@@ -189,31 +193,35 @@ msgstr ""
 msgid "Welcome to "
 msgstr ""
 
-#: ./rinvitation/views.py:108
+#: ./rinvitation/views.py:109
 msgid "You are invited as: "
 msgstr ""
 
-#: ./rinvitation/views.py:109
+#: ./rinvitation/views.py:110
 msgid "Your invitation code is: "
 msgstr ""
 
-#: ./rinvitation/views.py:110
+#: ./rinvitation/views.py:111
 msgid "Please visit this URL to register: "
 msgstr ""
 
 #: ./rinvitation/views.py:114
+msgid " invitation code"
+msgstr ""
+
+#: ./rinvitation/views.py:116
 msgid "Invitation code has been generated and send to "
 msgstr ""
 
-#: ./rinvitation/views.py:117
+#: ./rinvitation/views.py:119
 msgid "Invitation code has been generated"
 msgstr ""
 
-#: ./rinvitation/views.py:118
+#: ./rinvitation/views.py:120
 msgid "Mail sent fail,you can send it manually to "
 msgstr ""
 
-#: ./rinvitation/views.py:123
+#: ./rinvitation/views.py:125
 msgid "Error: you have no permission"
 msgstr ""
 

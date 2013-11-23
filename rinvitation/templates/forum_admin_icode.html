@@ -58,6 +58,7 @@ var model = avalon.define("icode", function(vm){
         return (vm.vnote!="") && (vm.email!="") && email_ok
     }
     vm.add_icode = function(){
+        vm.gen_msg = "{{=_('Create and sending invitation code ...')}}"
         $.ajax({
             type: "POST",
             url: "/api/add_icode",

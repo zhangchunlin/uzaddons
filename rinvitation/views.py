@@ -104,13 +104,15 @@ def api_add_icode():
                     used=False,
                     email=email)
                 def get_mail_content(ic):
-                    msg = _("Welcome to ")+settings.LAYOUT.TITLE+"\r\n"
+                    msg = unicode(_("Welcome to "))
+                    msg += unicode(settings.LAYOUT.TITLE)+"\r\n"
                     msg += _("You are invited as: ")+ic.vnote+"\r\n"
                     msg += _("Your invitation code is: ")+ic.code+"\r\n"
-                    msg += _("Please visit this URL to register: ")+"%s/register?icode=%s"%(request.url_root,ic.code)+"\r\n"
+                    msg += _("Please visit this URL to register: ")+"%sregister?icode=%s"%(request.url_root,ic.code)+"\r\n"
                     return msg
                 try:
-                    Mail().send_mail(settings.MAIL.FROM_ADDR,email,"Invitation code of zhc.f1do.com",get_mail_content(icode))
+                    title = request.host + unicode(_(" invitation code"))
+                    Mail().send_mail(settings.MAIL.FROM_ADDR,email,title,get_mail_content(icode))
                     msg = _("Invitation code has been generated and send to ")+email
                 except Exception,e:
                     print e
