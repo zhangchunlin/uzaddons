@@ -18,7 +18,7 @@ def register():
         if form.icode.data:
             Icode = get_model('icode')
             icode = Icode.get(Icode.c.code==form.icode.data)
-            if icode:
+            if icode and (not icode.used):
                 form.email.data = icode.email
             else:
                 return redirect('/forum/icode')
