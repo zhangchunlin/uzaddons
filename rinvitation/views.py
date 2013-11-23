@@ -111,7 +111,7 @@ def api_add_icode():
                     msg += _("Please visit this URL to register: ")+"%sregister?icode=%s"%(request.url_root,ic.code)+"\r\n"
                     return msg
                 try:
-                    title = request.host + unicode(_(" invitation code"))
+                    title = unicode(settings.LAYOUT.TITLE)+" (%s)"%(request.host) + unicode(_(" invitation code"))
                     Mail().send_mail(settings.MAIL.FROM_ADDR,email,title,get_mail_content(icode))
                     msg = _("Invitation code has been generated and send to ")+email
                 except Exception,e:
