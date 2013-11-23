@@ -55,10 +55,10 @@ class User(Model):
         fields = ['username', 'email', 'weibo', 'blog', 'qq', 'description', 'is_superuser']
         
     class EditForm:
-        fields = ['nickname', 'weibo', 'blog', 'qq', 'description']
+        fields = ['weibo', 'blog', 'qq', 'description']
     
     class AdminEditForm:
-        fields = ['nickname', 'email', 'weibo', 'blog', 'qq', 'description', 'is_superuser']
+        fields = ['email', 'weibo', 'blog', 'qq', 'description', 'is_superuser']
     
     class DetailView:
         fields = ['username', 'vnote', 'email', 'weibo', 'blog', 'qq', 'description', 'is_superuser', 'date_join', 'last_login']
