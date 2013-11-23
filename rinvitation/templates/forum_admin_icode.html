@@ -52,13 +52,16 @@ var model = avalon.define("icode", function(vm){
     vm.email = ""
     vm.gen_msg = "{{=_('Input verification note and email to create')}}"
     vm.gen_errmsg = ""
+    vm.gening = false
     
     vm.can_create_icode = function(){
         var email_ok = check_mail(vm.email)
-        return (vm.vnote!="") && (vm.email!="") && email_ok
+        var not_gening = (!vm.gening)
+        return (vm.vnote!="") && (vm.email!="") && (email_ok) && not_gening
     }
     vm.add_icode = function(){
         vm.gen_msg = "{{=_('Create and sending invitation code ...')}}"
+        vm.gening = true
         $.ajax({
             type: "POST",
             url: "/api/add_icode",
@@ -66,6 +69,7 @@ var model = avalon.define("icode", function(vm){
             success: function(data){
                 vm.gen_msg = data.msg
                 vm.gen_errmsg = data.errmsg
+                vm.gening = false
                 if (data.retcode==0)
                 {
                     vm.vnote = ""
