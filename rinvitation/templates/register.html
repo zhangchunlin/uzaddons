@@ -8,6 +8,7 @@
     <div class="box span5 box_shadow content-outter">
         <h2>{{=_('Register')}}</h2>
         <div class="box-body">
+            <span class="label label-warning">{{=settings.INVITATION.register_note}}</span>
             {{if msg:}}
             <p class="error">{{<<msg}}</p>
             {{pass}}

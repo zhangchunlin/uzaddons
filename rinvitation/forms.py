@@ -12,6 +12,7 @@ class RegisterForm(Form):
     password1 = PasswordField(label=_('Password again'), required=True)
     email = StringField(label=_('Email') ,html_attrs={"readonly":"readonly"}, required=True)
     icode = StringField(label=_('Invitation code'), html_attrs={"readonly":"readonly"}, required=True)
+    vnote = StringField(label=_('Verification note'), html_attrs={"readonly":"readonly"}, required=True)
     next = HiddenField()
     
     def validate_username(self, data):
@@ -26,7 +27,7 @@ class RegisterForm(Form):
             udata = data
         for w in settings.REGISTER.USERNAME_FORBIDDEN_WORDS:
             if udata.lower().find(w)!=-1:
-                return unicode(_('User name should not contain: '))+unicode(w)
+                return unicode(_('User name should not contain: '))+'"%s"'%(unicode(w))
         
         User = get_model('user')
         user = User.get(User.c.username==data)

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-11-23 14:44\n"
+"POT-Creation-Date: 2013-11-25 22:45\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,42 +39,49 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: ./rinvitation/forms.py:14 ./rinvitation/forms.py:44
+#: ./rinvitation/forms.py:14 ./rinvitation/forms.py:45
 #: ./rinvitation/models.py:80
 #: ./rinvitation/templates/forum_admin_icode.html:18
 #: ./rinvitation/templates/forum_icode.html:7
 msgid "Invitation code"
 msgstr ""
 
-#: ./rinvitation/forms.py:21
+#: ./rinvitation/forms.py:15 ./rinvitation/models.py:26
+#: ./rinvitation/models.py:81
+#: ./rinvitation/templates/forum_admin_icode.html:10
+#: ./rinvitation/templates/forum_admin_icode.html:20
+msgid "Verification note"
+msgstr ""
+
+#: ./rinvitation/forms.py:22
 msgid "User name too short,should >"
 msgstr ""
 
-#: ./rinvitation/forms.py:29
+#: ./rinvitation/forms.py:30
 msgid "User name should not contain: "
 msgstr ""
 
-#: ./rinvitation/forms.py:34
+#: ./rinvitation/forms.py:35
 msgid "User \"%s\" is already existed!"
 msgstr ""
 
-#: ./rinvitation/forms.py:38
+#: ./rinvitation/forms.py:39
 msgid "Password too short,should >"
 msgstr ""
 
-#: ./rinvitation/forms.py:40
+#: ./rinvitation/forms.py:41
 msgid "Passwords are not match."
 msgstr ""
 
-#: ./rinvitation/forms.py:43
+#: ./rinvitation/forms.py:44
 msgid "Go to register"
 msgstr ""
 
-#: ./rinvitation/forms.py:52
+#: ./rinvitation/forms.py:53
 msgid "Invalid invitation code"
 msgstr ""
 
-#: ./rinvitation/forms.py:58
+#: ./rinvitation/forms.py:59
 msgid "This code has been used"
 msgstr ""
 
@@ -106,12 +113,6 @@ msgstr ""
 msgid "Lock Status"
 msgstr ""
 
-#: ./rinvitation/models.py:26 ./rinvitation/models.py:81
-#: ./rinvitation/templates/forum_admin_icode.html:10
-#: ./rinvitation/templates/forum_admin_icode.html:20
-msgid "Verification note"
-msgstr ""
-
 #: ./rinvitation/models.py:82
 msgid "Invitation code creator"
 msgstr ""
@@ -127,6 +128,10 @@ msgstr ""
 
 #: ./rinvitation/settings.ini:10
 msgid "Notice: Invitation code needed for register"
+msgstr ""
+
+#: ./rinvitation/settings.ini:11
+msgid "Notice: Verification note will show in forum,but only be visible to register user"
 msgstr ""
 
 #: ./rinvitation/templates/admin_layout.html:19

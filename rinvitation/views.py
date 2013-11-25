@@ -9,7 +9,6 @@ from uliweb.orm import get_model
 
 def register():
     from uliweb.contrib.auth import create_user, login
-    print request.params
     form = functions.get_form('auth.RegisterForm')()
     
     if request.method == 'GET':
@@ -20,6 +19,7 @@ def register():
             icode = Icode.get(Icode.c.code==form.icode.data)
             if icode and (not icode.used):
                 form.email.data = icode.email
+                form.vnote.data = icode.vnote
             else:
                 return redirect('/forum/icode')
         else:

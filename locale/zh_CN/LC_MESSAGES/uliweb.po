@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2013-11-17 21:14\n"
-"PO-Revision-Date: 2013-11-23 14:45+0800\n"
+"PO-Revision-Date: 2013-11-25 22:46+0800\n"
 "Last-Translator: Chunlin Zhang <zhangchunlin@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -43,18 +43,18 @@ msgid "Email"
 msgstr "邮箱"
 
 #: ./rinvitation/forms.py:14
-#: ./rinvitation/forms.py:44
+#: ./rinvitation/forms.py:45
 #: ./rinvitation/models.py:80
 #: ./rinvitation/templates/forum_admin_icode.html:18
 #: ./rinvitation/templates/forum_icode.html:7
 msgid "Invitation code"
 msgstr "邀请码"
 
-#: ./rinvitation/forms.py:34
+#: ./rinvitation/forms.py:35
 msgid "User \"%s\" is already existed!"
 msgstr "用户 \"%s\" 已经存在！"
 
-#: ./rinvitation/forms.py:40
+#: ./rinvitation/forms.py:41
 msgid "Passwords are not match."
 msgstr "密码不匹配"
 
@@ -90,11 +90,11 @@ msgstr "请输入身份验证信息及邮件地址以创建邀请码"
 msgid "Information"
 msgstr "信息"
 
-#: ./rinvitation/forms.py:52
+#: ./rinvitation/forms.py:53
 msgid "Invalid invitation code"
 msgstr "无效的邀请码"
 
-#: ./rinvitation/forms.py:58
+#: ./rinvitation/forms.py:59
 msgid "This code has been used"
 msgstr "此邀请码已经被使用过了"
 
@@ -102,7 +102,7 @@ msgstr "此邀请码已经被使用过了"
 msgid "Invitation code creator"
 msgstr "邀请码生成者"
 
-#: ./rinvitation/forms.py:38
+#: ./rinvitation/forms.py:39
 msgid "Password too short,should >"
 msgstr "密码太短,长度必须 >"
 
@@ -130,7 +130,7 @@ msgstr "邀请码已经生成"
 msgid "Error: already generate code for this email address!"
 msgstr "错误: 已经为此邮件地址生成过邀请码了"
 
-#: ./rinvitation/forms.py:21
+#: ./rinvitation/forms.py:22
 msgid "User name too short,should >"
 msgstr "用户名太短,长度必须 >"
 
@@ -147,7 +147,7 @@ msgstr "请输入要跳转的页码"
 msgid "Used"
 msgstr "已使用"
 
-#: ./rinvitation/forms.py:43
+#: ./rinvitation/forms.py:44
 msgid "Go to register"
 msgstr "开始注册"
 
@@ -191,6 +191,7 @@ msgstr "创建邀请码"
 msgid "Nick Name"
 msgstr "昵称"
 
+#: ./rinvitation/forms.py:15
 #: ./rinvitation/models.py:26
 #: ./rinvitation/models.py:81
 #: ./rinvitation/templates/forum_admin_icode.html:10
@@ -206,7 +207,7 @@ msgstr "配置"
 msgid "Create Date"
 msgstr "创建日期"
 
-#: ./rinvitation/forms.py:29
+#: ./rinvitation/forms.py:30
 msgid "User name should not contain: "
 msgstr "用户名不能包含: "
 
@@ -233,4 +234,8 @@ msgstr " 注册邀请码"
 #: ./rinvitation/templates/forum_admin_icode.html:36
 msgid "Create and sending invitation code ..."
 msgstr "创建并发送邀请码中..."
+
+#: ./rinvitation/settings.ini:11
+msgid "Notice: Verification note will show in forum,but only be visible to register user"
+msgstr "注意: 身份验证信息会显示在论坛中,但只对注册用户可见"
 
