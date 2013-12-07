@@ -2,7 +2,7 @@
 #coding=utf-8
 
 from uliweb.orm import *
-
+from plugs.forums.models import ForumCategory, ForumTopicType, ForumTopic, ForumAttachment, ForumPost, ForumMp3
 
 class Forum(Model):#论坛
     name = Field(str, verbose_name='论坛名称', max_length=100, required=True)

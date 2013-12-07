@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2013-11-17 21:14\n"
-"PO-Revision-Date: 2013-11-25 22:46+0800\n"
+"PO-Revision-Date: 2013-12-07 12:19+0800\n"
 "Last-Translator: Chunlin Zhang <zhangchunlin@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -238,4 +238,9 @@ msgstr "创建并发送邀请码中..."
 #: ./rinvitation/settings.ini:11
 msgid "Notice: Verification note will show in forum,but only be visible to register user"
 msgstr "注意: 身份验证信息会显示在论坛中,但只对注册用户可见"
+
+#: ./privateforum/views.py:35
+#: ./privateforum/views.py:116
+msgid "This forum is private,you should login to view."
+msgstr "此论坛为私密论坛,需要登入才能查看."
 
