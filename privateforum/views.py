@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 #coding=utf-8
 
-from uliweb import expose, request, settings, functions, get_endpoint
+from uliweb import expose, request, settings, functions, get_endpoint, decorators
 from uliweb.orm import get_model
 from uliweb.utils.timesince import timesince
 from plugs.forums.views import ForumView
@@ -148,38 +148,38 @@ class PForumView(ForumView):
             
             a = []
             is_manager = forum.managers.has(request.user)
+            is_superuser = request.user.is_superuser
             if obj.floor == 1 and obj.parent == None:
+                if is_superuser:
+                    #超户可以隐藏
+                    a.append('<a href="#" rel="%d" class="hidden">%s</a>' % (obj.id, self.status['hidden'][obj.topic.hidden]))
                 #第一楼为主贴，可以允许关闭，顶置等操作
                 if is_manager:
-                    a.append('<a href="#" rel="%d" class="close_thread">%s</a>' % (obj.id, self.status['close'][obj.topic.closed]))
-                    a.append('<a href="#" rel="%d" class="hidden">%s</a>' % (obj.id, self.status['hidden'][obj.topic.hidden]))
                     a.append('<a href="#" rel="%d" class="top">%s</a>' % (obj.id, self.status['sticky'][obj.topic.sticky]))
                     a.append('<a href="#" rel="%d" class="essence">%s</a>' % (obj.id, self.status['essence'][obj.topic.essence]))
-                    a.append('<a href="#" rel="%d" class="homepage">%s</a>' % (obj.id, self.status['homepage'][obj.topic.homepage]))
-                    a.append('<a href="#" rel="%d" class="enable_comment">%s</a>' % (obj.id, self.status['enable_comment'][obj.topic.enable_comment]))
-                if is_manager or (obj.posted_by.id == request.user.id and obj.created_on+timedelta(days=settings.get_var('PARA/FORUM_EDIT_DELAY'))>=date.now()):
-                    #作者或管理员且在n天之内，则可以编辑
+                    #a.append('<a href="#" rel="%d" class="homepage">%s</a>' % (obj.id, self.status['homepage'][obj.topic.homepage]))
+                if obj.posted_by.id == request.user.id and obj.created_on+timedelta(days=settings.get_var('PARA/FORUM_EDIT_DELAY'))>=date.now():
+                    #作者在n天之内，则可以编辑
                     url = url_for(ForumView.edit_topic, forum_id=forum_id, topic_id=topic_id)
                     a.append('<a href="%s" rel="%d" class="edit">编辑</a>' % (url, obj.id))
-                if is_manager:
-                    url = url_for(ForumView.remove_topic, forum_id=forum_id, topic_id=topic_id)
-                    a.append('<a href="%s" rel="%d" class="delete_topic">删除主题</a>' % (url, obj.id))
+                    #作者可以关闭主题
+                    a.append('<a href="#" rel="%d" class="close_thread">%s</a>' % (obj.id, self.status['close'][obj.topic.closed]))
+                    #作者可以关闭评论
+                    a.append('<a href="#" rel="%d" class="enable_comment">%s</a>' % (obj.id, self.status['enable_comment'][obj.topic.enable_comment]))
+                    
                 #处理贴子转移,管理员可以转移
                 if is_manager or request.user.is_superuser:
                     url = url_for(ForumView.move_topic, forum_id=forum_id, topic_id=topic_id)
                     a.append('<a href="%s" rel="%d" class="move_topic">移动主题</a>' % (url, obj.id))
             else:
-                if is_manager or (obj.posted_by.id == request.user.id and obj.created_on+timedelta(days=settings.get_var('PARA/FORUM_EDIT_DELAY'))>=date.now()):
-                    #作者或管理员且在n天之内，则可以编辑
+                if obj.posted_by.id == request.user.id and obj.created_on+timedelta(days=settings.get_var('PARA/FORUM_EDIT_DELAY'))>=date.now():
+                    #作者在n天之内，则可以编辑
                     url = url_for(ForumView.edit_post, forum_id=forum_id, topic_id=topic_id, post_id=obj.id) + '?page=' + str(cur_page)
                     a.append('<a href="%s" rel="%d" class="edit_post">编辑</a>' % (url, obj.id))
-                    
-            if is_manager or (obj.posted_by.id == request.user.id):
-                if (obj.deleted and (obj.deleted_by.id == request.user.id or is_manager)) or not obj.deleted:
-                    a.append('<a href="#" rel="%d" class="delete">%s</a>' % (obj.id, self.status['delete'][obj.deleted]))
+            
             try:
                 obj.posted_by
-                if obj.posted_by.id == request.user.id:    
+                if obj.posted_by.id == request.user.id:
                     a.append('<a href="#" rel="%d" class="email">%s</a>' % (obj.id, self.status['email'][obj.reply_email]))
             except NotFound:
                 obj.posted_by = None
@@ -243,4 +243,72 @@ class PForumView(ForumView):
             'has_email':bool(request.user and request.user.email), 
             'page':pageno+1, 'pagination':pagination,
             'posts':posts, 'sub_posts':sub_posts}
+    
+    @expose('post_actions', name=get_endpoint(ForumView.post_actions))
+    @decorators.check_role('trusted')
+    def post_actions(self):
+        Post = get_model('forumpost')
+        
+        action = request.POST.get('action')
+        post_id = request.POST.get('post_id')
+        
+        post = Post.get(int(post_id))
+        if not post:
+            return json({'msg':"没找到对应的发贴"})
+        topic = post.topic
+        flag = False
+        topic_flag = False
+        txt = ''
+        msg = '处理成功'
+        #topic
+        is_manager = post.topic.forum.managers.has(request.user)
+        is_post_owner = (post.posted_by.id == request.user.id)
+        is_superuser = request.user.is_superuser
+        if is_post_owner:
+            if action == 'close_thread':
+                topic.closed = not topic.closed
+                topic_flag = True
+                txt = self.status['close'][topic.closed]
+            elif action == 'enable_comment':
+                topic.enable_comment = not topic.enable_comment
+                topic_flag = True
+                txt = self.status['enable_comment'][topic.enable_comment]
+        if is_superuser:
+            if action == 'hidden':
+                topic.hidden = not topic.hidden
+                topic_flag = True
+                txt = self.status['hidden'][topic.hidden]
+        if is_manager:
+            if action == 'top':
+                topic.sticky = not topic.sticky
+                topic_flag = True
+                txt = self.status['sticky'][topic.sticky]
+            elif action == 'essence':
+                topic.essence = not topic.essence
+                topic_flag = True
+                txt = self.status['essence'][topic.essence]
+            elif action == 'homepage':
+                topic.homepage = not topic.homepage
+                topic_flag = True
+                txt = self.status['homepage'][topic.homepage]
+            
+        #post
+        ok = False
+        if is_post_owner:
+            if action == 'email':
+                post.reply_email = not post.reply_email
+                flag = True
+                txt = self.status['email'][post.reply_email]
+                #检查用户邮箱是否存在
+                if post.reply_email and not post.posted_by.email:
+                    msg = '您的邮箱尚未设置，将无法处理邮件'
+                
+        if flag:
+            post.save()
+        if topic_flag:
+            topic.save()
+        if flag or topic_flag:
+            return json({'msg':msg, 'txt':txt})
+        else:
+            return json({'msg':'命令未识别或无权限, 未做修改'})
     
