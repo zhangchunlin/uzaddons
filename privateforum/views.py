@@ -195,7 +195,10 @@ class PForumView(ForumView):
         
         def posted_by(value, obj):
             pby = obj.posted_by
-            return u"%s (%s)"%(pby.username,pby.vnote)
+            if request.user:
+                return u"%s (%s)"%(pby.username,pby.vnote)
+            else:
+                return u"%s"%(pby.username)
         
         fields = ['topic', 'id', 'username', 'userimage', 'posted_by', 'content',
             'created_on', 'actions', 'floor', 'updated', 'parent',
