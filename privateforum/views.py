@@ -193,12 +193,16 @@ class PForumView(ForumView):
             if obj.floor == 1 and obj.topic.updated_on and not obj.parent:
                 return u'<div class="updated">由 %s 于 %s 更新</div>' % (obj.topic.modified_user.username, timesince(obj.topic.updated_on))
         
+        def posted_by(value, obj):
+            pby = obj.posted_by
+            return u"%s (%s)"%(pby.username,pby.vnote)
+        
         fields = ['topic', 'id', 'username', 'userimage', 'posted_by', 'content',
             'created_on', 'actions', 'floor', 'updated', 'parent',
             ]
         fields_convert_map = {'created_on':created_on, 'content':content,
             'username':username, 'userimage':userimage, 'actions':actions,
-            'updated':updated}
+            'updated':updated,'posted_by':posted_by}
         #view1 为生成一级回复，即回复主题
         view1 = ListView(Post, fields=fields, condition=condition1, order_by=order_by,
             rows_per_page=rows_per_page, pageno=pageno,
