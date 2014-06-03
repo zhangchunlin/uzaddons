@@ -1,4 +1,4 @@
-{{extend "admin_layout.html"}}
+{{extend "layout.html"}}
 
 {{block _css}}
 {{super}}
@@ -14,6 +14,9 @@
 {{menu('admin')}}
 {{end}}
 
+{{block content_sidebar}}
+{{include "inc_menu.html"}}
 {{block sub_menu}}
-{{sub_menu(menu_items, 'forumadmin','forum')}}
+{{sidemenu('sidemenu','forum/boards')}}
+{{end sub_menu}}
 {{end}}
